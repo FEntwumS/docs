@@ -1,5 +1,5 @@
 site_name: FEntwumS Documentation
-site_url: https://fentwums.github.io/fentwums-doc/
+site_url: https://fentwums.github.io/FEntwumS-Docs/
 site_description: Documentation for the FEntwumS IDE Project
 theme:
   name: readthedocs  # You can change this to another theme if you like.
