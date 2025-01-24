@@ -1,0 +1,31 @@
+site_name: FEntwumS Documentation
+site_url: https://fentwums.github.io/fentwums-doc/
+site_description: Documentation for the FEntwumS IDE Project
+theme:
+  name: readthedocs  # You can change this to another theme if you like.
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - codehilite:
+      guess_lang: false
+
+nav:
+  - Home: index.md
+  - User Guide:
+    - Design Tools: design_tools.md
+    - OneWare: oneware.md
+  - About: about.md
+  # - Introduction: introduction.md
+  # - Setup: setup.md
+  # - User Guide:
+      # - Getting Started: user_guide/getting_started.md
+      # - Features: user_guide/features.md
+  # - API:
+      # - Reference: api_reference.md
+
+plugins:
+  - search
+
+
+repo_url: https://github.com/fentwums
