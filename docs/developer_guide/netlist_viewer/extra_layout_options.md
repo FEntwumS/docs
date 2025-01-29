@@ -4,7 +4,7 @@ The following options have been added to the standard set of ELK options.
 They contain additional metadata about the netlist that helps frontends interact with the backend.#
 
 ## `de.thkoeln.fentwums.netlist.backend.signalname`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `signalname`
 - Type: `String`
@@ -14,7 +14,7 @@ They contain additional metadata about the netlist that helps frontends interact
 </details>
 
 ## `de.thkoeln.fentwums.netlist.backend.signalindex`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `signalindex`
 - Type: `Integer`
@@ -24,7 +24,7 @@ They contain additional metadata about the netlist that helps frontends interact
 </details>
 
 ## `de.thkoeln.fentwums.netlist.backend.cellname`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `cellname`
 - Type: `String`
@@ -34,7 +34,7 @@ They contain additional metadata about the netlist that helps frontends interact
 </details>
 
 ## `de.thkoeln.fentwums.netlist.backend.celltype`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `celltype`
 - Type: `String`
@@ -44,7 +44,7 @@ They contain additional metadata about the netlist that helps frontends interact
 </details>
 
 ## `de.thkoeln.fentwums.netlist.backend.location-path`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `location-path`
 - Type: `String`
@@ -54,7 +54,7 @@ They contain additional metadata about the netlist that helps frontends interact
 </details>
 
 ## `de.thkoeln.fentwums.netlist.backend.src-location`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `src-location`
 - Type: `String`
@@ -64,7 +64,7 @@ They contain additional metadata about the netlist that helps frontends interact
 </details>
 
 ## `de.thkoeln.fentwums.netlist.backend.signalvalue`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `signalvalue`
 - Type: `String`
@@ -74,7 +74,7 @@ They contain additional metadata about the netlist that helps frontends interact
 </details>
 
 ## `de.thkoeln.fentwums.netlist.backend.index-in-signal`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `index-in-signal`
 - Type: `Integer`
@@ -84,7 +84,7 @@ They contain additional metadata about the netlist that helps frontends interact
 </details>
 
 ## `de.thkoeln.fentwums.netlist.backend.signaltype`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `signaltype`
 - Type: `String`
@@ -95,7 +95,7 @@ They contain additional metadata about the netlist that helps frontends interact
 </details>
 
 ## `de.thkoeln.fentwums.netlist.backend.port-group-name`
-<details open>
+<details open markdown="1">
 
 - Shortened option key: `port-group-name`
 - Type: `String`
