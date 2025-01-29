@@ -117,104 +117,95 @@
 <p>The following options have been added to the standard set of ELK options.
 They contain additional metadata about the netlist that helps frontends interact with the backend.#</p>
 <h2 id="dethkoelnfentwumsnetlistbackendsignalname"><code>de.thkoeln.fentwums.netlist.backend.signalname</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendsignalname" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `signalname`
-- Type: `String`
-- Intended use: Contains the name of the signal this edge belongs to
-- Target: Edges
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>signalname</code></li>
+<li>Type: <code>String</code></li>
+<li>Intended use: Contains the name of the signal this edge belongs to</li>
+<li>Target: Edges</li>
+</ul>
 </details>
-
 <h2 id="dethkoelnfentwumsnetlistbackendsignalindex"><code>de.thkoeln.fentwums.netlist.backend.signalindex</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendsignalindex" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `signalindex`
-- Type: `Integer`
-- Intended use: Contains the bitindex of the signal this edge belongs to. It is globally unique within the netlist and is a positive integer greater than 1
-- Target: Edges
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>signalindex</code></li>
+<li>Type: <code>Integer</code></li>
+<li>Intended use: Contains the bitindex of the signal this edge belongs to. It is globally unique within the netlist and is a positive integer greater than 1</li>
+<li>Target: Edges</li>
+</ul>
 </details>
-
 <h2 id="dethkoelnfentwumsnetlistbackendcellname"><code>de.thkoeln.fentwums.netlist.backend.cellname</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendcellname" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `cellname`
-- Type: `String`
-- Intended use: Contains the name of the cell described by this node
-- Target: Nodes
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>cellname</code></li>
+<li>Type: <code>String</code></li>
+<li>Intended use: Contains the name of the cell described by this node</li>
+<li>Target: Nodes</li>
+</ul>
 </details>
-
 <h2 id="dethkoelnfentwumsnetlistbackendcelltype"><code>de.thkoeln.fentwums.netlist.backend.celltype</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendcelltype" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `celltype`
-- Type: `String`
-- Intended use: Contains the type of the cell described by this node. Constant drivers are of type `Constant driver`. A list of the celltypes yosys is able to generate can be found [here](https://yosyshq.readthedocs.io/projects/yosys/en/latest/cell_index.html).
-- Target: `Nodes`
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>celltype</code></li>
+<li>Type: <code>String</code></li>
+<li>Intended use: Contains the type of the cell described by this node. Constant drivers are of type <code>Constant driver</code>. A list of the celltypes yosys is able to generate can be found <a href="https://yosyshq.readthedocs.io/projects/yosys/en/latest/cell_index.html">here</a>.</li>
+<li>Target: <code>Nodes</code></li>
+</ul>
 </details>
-
 <h2 id="dethkoelnfentwumsnetlistbackendlocation-path"><code>de.thkoeln.fentwums.netlist.backend.location-path</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendlocation-path" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `location-path`
-- Type: `String`
-- Intended use: Contains the location of the cell or part of the signal described by this element inside the netlist hierarchy
-- Targets: `Nodes` and `Edges`
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>location-path</code></li>
+<li>Type: <code>String</code></li>
+<li>Intended use: Contains the location of the cell or part of the signal described by this element inside the netlist hierarchy</li>
+<li>Targets: <code>Nodes</code> and <code>Edges</code></li>
+</ul>
 </details>
-
 <h2 id="dethkoelnfentwumsnetlistbackendsrc-location"><code>de.thkoeln.fentwums.netlist.backend.src-location</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendsrc-location" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `src-location`
-- Type: `String`
-- Intended use: Contains the location of the HDL-Code that is represented (in part or completely) by this element. Contains the absolute file path as well as line and column numbers
-- Targets: `Nodes` and `Edges`
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>src-location</code></li>
+<li>Type: <code>String</code></li>
+<li>Intended use: Contains the location of the HDL-Code that is represented (in part or completely) by this element. Contains the absolute file path as well as line and column numbers</li>
+<li>Targets: <code>Nodes</code> and <code>Edges</code></li>
+</ul>
 </details>
-
 <h2 id="dethkoelnfentwumsnetlistbackendsignalvalue"><code>de.thkoeln.fentwums.netlist.backend.signalvalue</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendsignalvalue" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `signalvalue`
-- Type: `String`
-- Intended use: Contains the current value of the signal represented by this edge. Each character is the value of one of the contained bitindices.
-- Target: `Edges`
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>signalvalue</code></li>
+<li>Type: <code>String</code></li>
+<li>Intended use: Contains the current value of the signal represented by this edge. Each character is the value of one of the contained bitindices.</li>
+<li>Target: <code>Edges</code></li>
+</ul>
 </details>
-
 <h2 id="dethkoelnfentwumsnetlistbackendindex-in-signal"><code>de.thkoeln.fentwums.netlist.backend.index-in-signal</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendindex-in-signal" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `index-in-signal`
-- Type: `Integer`
-- Intended use: Contains the index of the signal described by this edge inside its containing signal (a vector). `-1` if no containing signal exists
-- Target: `Edges`
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>index-in-signal</code></li>
+<li>Type: <code>Integer</code></li>
+<li>Intended use: Contains the index of the signal described by this edge inside its containing signal (a vector). <code>-1</code> if no containing signal exists</li>
+<li>Target: <code>Edges</code></li>
+</ul>
 </details>
-
 <h2 id="dethkoelnfentwumsnetlistbackendsignaltype"><code>de.thkoeln.fentwums.netlist.backend.signaltype</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendsignaltype" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `signaltype`
-- Type: `String`
-- Value: One of `CONSTANT`, `BUNDLED_CONSTANT`, `BUNDLED`, `SINGLE` or `UNDEFINED`
-- Intended use: Contains information about the type of signal represented by this edge
-- Target: `Edges`
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>signaltype</code></li>
+<li>Type: <code>String</code></li>
+<li>Value: One of <code>CONSTANT</code>, <code>BUNDLED_CONSTANT</code>, <code>BUNDLED</code>, <code>SINGLE</code> or <code>UNDEFINED</code></li>
+<li>Intended use: Contains information about the type of signal represented by this edge</li>
+<li>Target: <code>Edges</code></li>
+</ul>
 </details>
-
 <h2 id="dethkoelnfentwumsnetlistbackendport-group-name"><code>de.thkoeln.fentwums.netlist.backend.port-group-name</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendport-group-name" title="Permanent link">&para;</a></h2>
-<details open>
-
-- Shortened option key: `port-group-name`
-- Type: `String`
-- Intended use: Contains the group a port belongs to, e.g. `D`, `Q`, `S` ...
-- Target: `Ports`
-
+<details open="open">
+<ul>
+<li>Shortened option key: <code>port-group-name</code></li>
+<li>Type: <code>String</code></li>
+<li>Intended use: Contains the group a port belongs to, e.g. <code>D</code>, <code>Q</code>, <code>S</code> ...</li>
+<li>Target: <code>Ports</code></li>
+</ul>
 </details>
               
             </div>
