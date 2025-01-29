@@ -138,34 +138,48 @@ This hash is generated using the <a href="https://en.wikipedia.org/wiki/Jenkins_
 The hash is a 64 bit unsigned integer, where the upper 32 bits are the hashed absolute path of the netlist file, while the lower 32 bits are the hashed contents of the netlist file.</p>
 <h2 id="creating-a-graph-representation-of-a-given-netlist">Creating a graph representation of a given netlist<a class="headerlink" href="#creating-a-graph-representation-of-a-given-netlist" title="Permanent link">&para;</a></h2>
 <h3 id="graphlocalfile"><code>/graphLocalFile</code><a class="headerlink" href="#graphlocalfile" title="Permanent link">&para;</a></h3>
-<p>Parameters:
-1. <code>filename</code>: The absolute path pointing to the netlist file
-2. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></p>
+<p>Parameters:</p>
+<ol>
+<li><code>filename</code>: The absolute path pointing to the netlist file</li>
+<li><code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></li>
+</ol>
 <p>Notes:
 - This call only works when the file is located on the same system as the running backend executable.</p>
 <h3 id="graphremotefile"><code>/graphRemoteFile</code><a class="headerlink" href="#graphremotefile" title="Permanent link">&para;</a></h3>
-<p>Parameters:
-1. <code>file</code>: A multipart file, containing the netlist files' contents
-2. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></p>
+<p>Parameters:</p>
+<ol>
+<li><code>file</code>: A multipart file, containing the netlist files' contents</li>
+<li><code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></li>
+</ol>
 <h2 id="modifying-or-retreiving-an-existing-graph">Modifying or retreiving an existing graph<a class="headerlink" href="#modifying-or-retreiving-an-existing-graph" title="Permanent link">&para;</a></h2>
 <p>The following calls only return results if the referenced netlist already exists on the backend server.</p>
 <h3 id="expandnode"><code>/expandNode</code><a class="headerlink" href="#expandnode" title="Permanent link">&para;</a></h3>
 <p>This call collapses the given cell, if it is expanded (its' children are visible) or vice-versa.</p>
-<p>Parameters:
-1. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a>
-2. <code>nodepath</code>: The path of the node that is to be collapsed or expanded. Can be found in the <a href="/docs/developer_guide/netlist_viewer/extra_layout_options/#dethkoelnfentwumsnetlistbackendlocation-path">location-path option</a></p>
-<p>Notes:
-- While cells have their <code>location-path</code> set, they can neither be expanded or collapsed, as they have no children
-- This call forces a partial re-layout of the graph. Depending on the number of visible entities and cells, this may take a while.</p>
+<p>Parameters:</p>
+<ol>
+<li><code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></li>
+<li><code>nodepath</code>: The path of the node that is to be collapsed or expanded. Can be found in the <a href="/docs/developer_guide/netlist_viewer/extra_layout_options/#dethkoelnfentwumsnetlistbackendlocation-path">location-path option</a></li>
+</ol>
+<p>Notes:</p>
+<ul>
+<li>While cells have their <code>location-path</code> set, they can neither be expanded or collapsed, as they have no children</li>
+<li>This call forces a partial re-layout of the graph. Depending on the number of visible entities and cells, this may take a while.</li>
+</ul>
 <h3 id="get-current-graph"><code>/get-current-graph</code><a class="headerlink" href="#get-current-graph" title="Permanent link">&para;</a></h3>
-<p>Parameters:
-1. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></p>
+<p>Parameters:</p>
+<ol>
+<li><code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></li>
+</ol>
 <h2 id="mapping-signal-names-to-yosys-bitindices">Mapping signal names to yosys bitindices<a class="headerlink" href="#mapping-signal-names-to-yosys-bitindices" title="Permanent link">&para;</a></h2>
 <h3 id="get-net-information"><code>/get-net-information</code><a class="headerlink" href="#get-net-information" title="Permanent link">&para;</a></h3>
-<p>Parameters:
-1. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></p>
-<p>Notes: 
-- The JSON document is formatted as follows:</p>
+<p>Parameters:</p>
+<ol>
+<li><code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></li>
+</ol>
+<p>Notes: </p>
+<ul>
+<li>The JSON document is formatted as follows:</li>
+</ul>
 <p><code>{
     "signals": {
       "&lt;signalname&gt;": {
