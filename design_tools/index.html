@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fentwums.github.io/FEntwumS-Docs/design_tools/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fentwums.github.io/fentwums-doc/design_tools/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
     <title>Design Tools - FEntwumS Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
@@ -14,7 +14,7 @@
         // Current page data
         var mkdocs_page_name = "Design Tools";
         var mkdocs_page_input_path = "design_tools.md";
-        var mkdocs_page_url = "/FEntwumS-Docs/design_tools/";
+        var mkdocs_page_url = "/fentwums-doc/design_tools/";
       </script>
     
     <!--[if lt IE 9]>
@@ -54,6 +54,17 @@
                   <li class="toctree-l1"><a class="reference internal" href="../oneware/">OneWare</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Developer Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Netlist Viewer</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../developer_guide/netlist_viewer/api_information/">API information</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../developer_guide/netlist_viewer/extra_layout_options/">Extra layout options</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
                 </li>
@@ -86,7 +97,7 @@
                 <h3 id="design-tools">Design Tools<a class="headerlink" href="#design-tools" title="Permanent link">&para;</a></h3>
 <p>The design tools offer an easy-to-use design flow to implement and debug digital circuits in OneWare. </p>
 <h4 id="netlistviewer">NetlistViewer<a class="headerlink" href="#netlistviewer" title="Permanent link">&para;</a></h4>
-<p>The main feature is the <a href="https://github.com/FEntwumS/Oneware.NetlistReaderFrontend">NetlistViewer</a>. </p>
+<p>The main feature is the <a href="https://github.com/FEntwumS/FEntwumS.NetlistViewer">NetlistViewer</a>. </p>
 <p>It is built on top of the open-source tool <a href="https://github.com/YosysHQ/yosys">yosys</a>. Yosys parses the HDL design and outputs the netlist, which is then converted by the <a href="https://github.com/FEntwumS/NetlistReaderBackend">FEntwumS Backend</a> into a layout. This layout is used by the Frontend to render a graph view.</p>
 <p>To make development with OneWare seamless, the FEntwumS Plugins add interactions to OneWare's Waveform Viewer. This way, the Waveform Viewer, Netlist Viewer, and Source Code are connected via mouse clicks, making it easy to jump from one view to another while debugging.</p>
               

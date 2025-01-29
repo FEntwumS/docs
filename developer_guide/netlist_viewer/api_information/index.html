@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fentwums.github.io/fentwums-doc/developer_guide/netlist_viewer/api_information/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>API information - FEntwumS Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API information";
+        var mkdocs_page_input_path = "developer_guide\\netlist_viewer\\api_information.md";
+        var mkdocs_page_url = "/fentwums-doc/developer_guide/netlist_viewer/api_information/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FEntwumS Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../design_tools/">Design Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../oneware/">OneWare</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Guide</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Netlist Viewer</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">API information</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#format-of-the-layouted-netlist">Format of the layouted netlist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hash-generation">Hash generation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-graph-representation-of-a-given-netlist">Creating a graph representation of a given netlist</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#graphlocalfile">/graphLocalFile</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#graphremotefile">/graphRemoteFile</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#modifying-or-retreiving-an-existing-graph">Modifying or retreiving an existing graph</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#expandnode">/expandNode</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get-current-graph">/get-current-graph</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mapping-signal-names-to-yosys-bitindices">Mapping signal names to yosys bitindices</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#get-net-information">/get-net-information</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../extra_layout_options/">Extra layout options</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FEntwumS Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developer Guide</li>
+          <li class="breadcrumb-item">Netlist Viewer</li>
+      <li class="breadcrumb-item active">API information</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/fentwums/edit/master/docs/developer_guide/netlist_viewer/api_information.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-information-for-frontend-developers">API information for frontend developers<a class="headerlink" href="#api-information-for-frontend-developers" title="Permanent link">&para;</a></h1>
+<h2 id="format-of-the-layouted-netlist">Format of the layouted netlist<a class="headerlink" href="#format-of-the-layouted-netlist" title="Permanent link">&para;</a></h2>
+<p>The returned JSON document is formatted as ELK-JSON. The exact specification may be found
+in <a href="https://eclipse.dev/elk/documentation/tooldevelopers/graphdatastructure/jsonformat.html">the ELK documentation</a>. The
+following options are used in the generation of the document:</p>
+<ul>
+<li><code>omitZeroDimension</code> &#x2192; Whenever no dimension is specified for a given element, the receiving program should
+  assume that it is <code>0</code> instead</li>
+<li><code>omitZeroPosition</code> &#x2192; Whenever no position is specified for a given element, the receiving program should assume
+  that it is <code>0</code> instead</li>
+<li><code>shortLayoutOptionKeys</code> &#x2192; All layout options are shortened to reduce file size</li>
+</ul>
+<p>The document contains some, if not all the options described <a href="/docs/developer_guide/netlist_viewer/extra_layout_options.md">here</a> in addition to the layout options included in ELK.</p>
+<h2 id="hash-generation">Hash generation<a class="headerlink" href="#hash-generation" title="Permanent link">&para;</a></h2>
+<p>To uniquely identify the netlists on the backend server, the client must send an identifying hash alongside them.
+This hash is generated using the <a href="https://en.wikipedia.org/wiki/Jenkins_hash_function#one_at_a_time">one_at_a_time hash function</a> by Bob Jenkins.
+The hash is a 64 bit unsigned integer, where the upper 32 bits are the hashed absolute path of the netlist file, while the lower 32 bits are the hashed contents of the netlist file.</p>
+<h2 id="creating-a-graph-representation-of-a-given-netlist">Creating a graph representation of a given netlist<a class="headerlink" href="#creating-a-graph-representation-of-a-given-netlist" title="Permanent link">&para;</a></h2>
+<h3 id="graphlocalfile"><code>/graphLocalFile</code><a class="headerlink" href="#graphlocalfile" title="Permanent link">&para;</a></h3>
+<p>Parameters:
+1. <code>filename</code>: The absolute path pointing to the netlist file
+2. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></p>
+<p>Notes:
+- This call only works when the file is located on the same system as the running backend executable.</p>
+<h3 id="graphremotefile"><code>/graphRemoteFile</code><a class="headerlink" href="#graphremotefile" title="Permanent link">&para;</a></h3>
+<p>Parameters:
+1. <code>file</code>: A multipart file, containing the netlist files' contents
+2. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></p>
+<h2 id="modifying-or-retreiving-an-existing-graph">Modifying or retreiving an existing graph<a class="headerlink" href="#modifying-or-retreiving-an-existing-graph" title="Permanent link">&para;</a></h2>
+<p>The following calls only return results if the referenced netlist already exists on the backend server.</p>
+<h3 id="expandnode"><code>/expandNode</code><a class="headerlink" href="#expandnode" title="Permanent link">&para;</a></h3>
+<p>This call collapses the given cell, if it is expanded (its' children are visible) or vice-versa.</p>
+<p>Parameters:
+1. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a>
+2. <code>nodepath</code>: The path of the node that is to be collapsed or expanded. Can be found in the <a href="/docs/developer_guide/netlist_viewer/extra_layout_options.md#dethkoelnfentwumsnetlistbackendlocation-path">location-path option</a></p>
+<p>Notes:
+- While cells have their <code>location-path</code> set, they can neither be expanded or collapsed, as they have no children
+- This call forces a partial re-layout of the graph. Depending on the number of visible entities and cells, this may take a while.</p>
+<h3 id="get-current-graph"><code>/get-current-graph</code><a class="headerlink" href="#get-current-graph" title="Permanent link">&para;</a></h3>
+<p>Parameters:
+1. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></p>
+<h2 id="mapping-signal-names-to-yosys-bitindices">Mapping signal names to yosys bitindices<a class="headerlink" href="#mapping-signal-names-to-yosys-bitindices" title="Permanent link">&para;</a></h2>
+<h3 id="get-net-information"><code>/get-net-information</code><a class="headerlink" href="#get-net-information" title="Permanent link">&para;</a></h3>
+<p>Parameters:
+1. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a></p>
+<p>Notes: 
+- The JSON document is formatted as follows:</p>
+<p><code>{
+    "signals": {
+      "&lt;signalname&gt;": {
+        "scope": "&lt;hdlname|scopename&gt;",
+        "bits": [
+          &lt;bitindex&gt;,
+          ...
+        ]
+      },
+      ...
+    }
+  }</code></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../../oneware/" class="btn btn-neutral float-left" title="OneWare"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../extra_layout_options/" class="btn btn-neutral float-right" title="Extra layout options">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/fentwums" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../../oneware/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../extra_layout_options/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
