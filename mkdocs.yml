@@ -5,10 +5,12 @@ theme:
   name: readthedocs  # You can change this to another theme if you like.
 
 markdown_extensions:
+  - markdown.extensions.md_in_html
   - toc:
       permalink: true
   - codehilite:
       guess_lang: false
+
 
 nav:
   - Home: index.md
