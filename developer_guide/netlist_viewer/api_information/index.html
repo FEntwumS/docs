@@ -131,7 +131,7 @@ following options are used in the generation of the document:</p>
   that it is <code>0</code> instead</li>
 <li><code>shortLayoutOptionKeys</code> &#x2192; All layout options are shortened to reduce file size</li>
 </ul>
-<p>The document contains some, if not all the options described <a href="/docs/developer_guide/netlist_viewer/extra_layout_options.md">here</a> in addition to the layout options included in ELK.</p>
+<p>The document contains some, if not all the options described <a href="/docs/developer_guide/netlist_viewer/extra_layout_options/">here</a> in addition to the layout options included in ELK.</p>
 <h2 id="hash-generation">Hash generation<a class="headerlink" href="#hash-generation" title="Permanent link">&para;</a></h2>
 <p>To uniquely identify the netlists on the backend server, the client must send an identifying hash alongside them.
 This hash is generated using the <a href="https://en.wikipedia.org/wiki/Jenkins_hash_function#one_at_a_time">one_at_a_time hash function</a> by Bob Jenkins.
@@ -153,7 +153,7 @@ The hash is a 64 bit unsigned integer, where the upper 32 bits are the hashed ab
 <p>This call collapses the given cell, if it is expanded (its' children are visible) or vice-versa.</p>
 <p>Parameters:
 1. <code>hash</code>: The hash that is to be usd for this file. This hash is generated as described <a href="#hash-generation">here</a>
-2. <code>nodepath</code>: The path of the node that is to be collapsed or expanded. Can be found in the <a href="/docs/developer_guide/netlist_viewer/extra_layout_options.md#dethkoelnfentwumsnetlistbackendlocation-path">location-path option</a></p>
+2. <code>nodepath</code>: The path of the node that is to be collapsed or expanded. Can be found in the <a href="/docs/developer_guide/netlist_viewer/extra_layout_options/#dethkoelnfentwumsnetlistbackendlocation-path">location-path option</a></p>
 <p>Notes:
 - While cells have their <code>location-path</code> set, they can neither be expanded or collapsed, as they have no children
 - This call forces a partial re-layout of the graph. Depending on the number of visible entities and cells, this may take a while.</p>
