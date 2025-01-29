@@ -24,6 +24,7 @@ The hash is a 64 bit unsigned integer, where the upper 32 bits are the hashed ab
 ### `/graphLocalFile`
 
 Parameters:
+
 1. `filename`: The absolute path pointing to the netlist file
 2. `hash`: The hash that is to be usd for this file. This hash is generated as described [here](#hash-generation)
 
@@ -33,6 +34,7 @@ Notes:
 ### `/graphRemoteFile`
 
 Parameters:
+
 1. `file`: A multipart file, containing the netlist files' contents
 2. `hash`: The hash that is to be usd for this file. This hash is generated as described [here](#hash-generation)
 
@@ -45,16 +47,19 @@ The following calls only return results if the referenced netlist already exists
 This call collapses the given cell, if it is expanded (its' children are visible) or vice-versa.
 
 Parameters:
+
 1. `hash`: The hash that is to be usd for this file. This hash is generated as described [here](#hash-generation)
 2. `nodepath`: The path of the node that is to be collapsed or expanded. Can be found in the [location-path option](/docs/developer_guide/netlist_viewer/extra_layout_options/#dethkoelnfentwumsnetlistbackendlocation-path)
 
 Notes:
+
 - While cells have their `location-path` set, they can neither be expanded or collapsed, as they have no children
 - This call forces a partial re-layout of the graph. Depending on the number of visible entities and cells, this may take a while.
 
 ### `/get-current-graph`
 
 Parameters:
+
 1. `hash`: The hash that is to be usd for this file. This hash is generated as described [here](#hash-generation)
 
 ## Mapping signal names to yosys bitindices
@@ -62,9 +67,11 @@ Parameters:
 ### `/get-net-information`
 
 Parameters:
+
 1. `hash`: The hash that is to be usd for this file. This hash is generated as described [here](#hash-generation)
 
 Notes: 
+
 - The JSON document is formatted as follows:
 
   ```
