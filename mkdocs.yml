@@ -5,16 +5,22 @@ theme:
   name: readthedocs  # You can change this to another theme if you like.
 
 markdown_extensions:
+  - markdown.extensions.md_in_html
   - toc:
       permalink: true
   - codehilite:
       guess_lang: false
+
 
 nav:
   - Home: index.md
   - User Guide:
     - Design Tools: design_tools.md
     - OneWare: oneware.md
+  - Developer Guide:
+    - Netlist Viewer:
+      - API information: developer_guide/netlist_viewer/api_information.md
+      - Extra layout options: developer_guide/netlist_viewer/extra_layout_options.md
   - About: about.md
   # - Introduction: introduction.md
   # - Setup: setup.md

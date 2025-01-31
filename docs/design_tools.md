@@ -4,7 +4,7 @@ The design tools offer an easy-to-use design flow to implement and debug digital
 
 #### NetlistViewer
 
-The main feature is the [NetlistViewer](https://github.com/FEntwumS/Oneware.NetlistReaderFrontend). 
+The main feature is the [NetlistViewer](https://github.com/FEntwumS/FEntwumS.NetlistViewer). 
 
 It is built on top of the open-source tool [yosys](https://github.com/YosysHQ/yosys). Yosys parses the HDL design and outputs the netlist, which is then converted by the [FEntwumS Backend](https://github.com/FEntwumS/NetlistReaderBackend) into a layout. This layout is used by the Frontend to render a graph view.
 
