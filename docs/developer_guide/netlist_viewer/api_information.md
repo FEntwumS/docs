@@ -1,4 +1,4 @@
-# API information for frontend developers
+# Backend API information for frontend developers
 
 ## Format of the layouted netlist
 The returned JSON document is formatted as ELK-JSON. The exact specification may be found

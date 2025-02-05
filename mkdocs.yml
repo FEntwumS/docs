@@ -19,7 +19,7 @@ nav:
     - OneWare: oneware.md
   - Developer Guide:
     - Netlist Viewer:
-      - API information: developer_guide/netlist_viewer/api_information.md
+      - Backend API information: developer_guide/netlist_viewer/api_information.md
       - Extra layout options: developer_guide/netlist_viewer/extra_layout_options.md
   - About: about.md
   # - Introduction: introduction.md
