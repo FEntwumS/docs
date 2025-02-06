@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fentwums.github.io/fentwums-doc/developer_guide/netlist_viewer/development_setup/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Development setup - FEntwumS Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Development setup";
+        var mkdocs_page_input_path = "developer_guide\\netlist_viewer\\development_setup.md";
+        var mkdocs_page_url = "/fentwums-doc/developer_guide/netlist_viewer/development_setup/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FEntwumS Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../design_tools/">Design Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../oneware/">OneWare</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Guide</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Netlist Viewer</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Development setup</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../api_information/">Backend API information</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../extra_layout_options/">Extra layout options</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FEntwumS Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developer Guide</li>
+          <li class="breadcrumb-item">Netlist Viewer</li>
+      <li class="breadcrumb-item active">Development setup</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/fentwums/edit/master/docs/developer_guide/netlist_viewer/development_setup.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h1>
+<p>To work on developing the netlist viewer, you need to have the following tools installed:</p>
+<ul>
+<li>JDK 21 or higher</li>
+<li>.net 9.0</li>
+<li>maven 3.9 or higher</li>
+<li>(recommended) a Java IDE such as IntelliJ Idea</li>
+<li>(recommended) a C# IDE such as Jetbrains Rider</li>
+</ul>
+<h1 id="compiling-oneware-studio">Compiling OneWare Studio<a class="headerlink" href="#compiling-oneware-studio" title="Permanent link">&para;</a></h1>
+<p><strong>The official developer documentation for plugin development with for OneWare Studio can be found <a href="https://one-ware.com/docs/studio/plugins/write-plugin/">here</a></strong></p>
+<p>It is recommended to compile your own version of OneWare Studio for plugin development.
+Just clone the OneWare Studio source code <a href="https://github.com/one-ware/OneWare">from here</a>.</p>
+<p>It may be necessary to check out a ceratin commit before you can start building OneWare Studio. 
+Please check the <a href="https://github.com/FEntwumS/FEntwumS.NetlistViewer/blob/master/README.md">readme</a> for any such notices.</p>
+<p>Once you have completed the previous steps, you can start the compilation.
+Please first select the correct project to build (namely <code>OneWare.Studio.Desktop</code>), then compile the project.</p>
+<p>From the base directory of your local git repo, you should now be able to find the OneWare Studio executable (eg <code>OneWareStudio.exe</code>) under <code>studio/OneWare.Studio.Desktop/bin/Debug/net9.0/[your target platform, eg win-x64]/</code>.</p>
+<h1 id="compiling-the-plugin">Compiling the plugin<a class="headerlink" href="#compiling-the-plugin" title="Permanent link">&para;</a></h1>
+<p>In another directory, clone the plugin <a href="https://github.com/FEntwumS/FEntwumS.NetlistViewer">repository</a>.
+To be able to directly run the plugin from Rider, add a new run configuration.
+For the <code>Exe path</code>, enter the directory of the OneWare Studio executable you previously compiled.
+For <code>Program arguments</code>, enter <code>--modules ./</code>.
+And for the <code>Working directory</code>, enter <code>[plugin git repo]/src/FEntwumS.NetlistViewer/bin/debug/net9.0</code>.</p>
+<p>If you followed all the instructions, running the configuration should open OneWare Studio with the FEntwumS netlist viewer plugin loaded.</p>
+<h1 id="compiling-the-backend">Compiling the backend<a class="headerlink" href="#compiling-the-backend" title="Permanent link">&para;</a></h1>
+<p>If you want to work on the backend, please follow the instructions <a href="https://github.com/FEntwumS/NetlistReaderBackend?tab=readme-ov-file#build">here</a> to compile your own version.</p>
+<p>If you want to test any changes you made, start the backend manually using <code>java -jar fentwums-netlist-reader-server-[version number]-exec.jar</code> in the  <code>fentwums-netlist-reader-server/target</code> directory.</p>
+<p>The frontend plugin will automatically use the already running backend.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../../oneware/" class="btn btn-neutral float-left" title="OneWare"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api_information/" class="btn btn-neutral float-right" title="Backend API information">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/fentwums" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../../oneware/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../api_information/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
