@@ -10,7 +10,7 @@ To work on developing the netlist viewer, you need to have the following tools i
 
 # Compiling OneWare Studio
 
-**The official developer documentation for plugin development with for OneWare Studio can be found [here](https://one-ware.com/docs/studio/plugins/write-plugin/)**
+**The official developer documentation for plugin development with for OneWare Studio can be found [here](https://one-ware.com/docs/studio/plugins/write-plugin/).**
 
 It is recommended to compile your own version of OneWare Studio for plugin development.
 Just clone the OneWare Studio source code [from here](https://github.com/one-ware/OneWare).
