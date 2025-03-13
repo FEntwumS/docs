@@ -103,3 +103,13 @@ They contain additional metadata about the netlist that helps frontends interact
 - Target: `Ports`
 
 </details>
+
+## `de.thkoeln.fentwums.netlist.backend.font-size`
+<details open markdown="1">
+
+- Shortened option key: `font-size`
+- Type: `double`
+- Intended use: The font size of the label this attribute is attached to
+- Target: `Labels`
+
+</details>

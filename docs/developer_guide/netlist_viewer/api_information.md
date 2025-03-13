@@ -1,4 +1,4 @@
-# API information for frontend developers
+# Backend API information for frontend developers
 
 ## Format of the layouted netlist
 The returned JSON document is formatted as ELK-JSON. The exact specification may be found
@@ -11,7 +11,7 @@ following options are used in the generation of the document:
   that it is `0` instead
 - `shortLayoutOptionKeys` &#x2192; All layout options are shortened to reduce file size
 
-The document contains some, if not all the options described [here](docs/developer_guide/netlist_viewer/extra_layout_options.md) in addition to the layout options included in ELK.
+The document contains some, if not all the options described [here](extra_layout_options.md) in addition to the layout options included in ELK.
 
 ## Hash generation
 
@@ -49,7 +49,7 @@ This call collapses the given cell, if it is expanded (its' children are visible
 Parameters:
 
 1. `hash`: The hash that is to be usd for this file. This hash is generated as described [here](#hash-generation)
-2. `nodepath`: The path of the node that is to be collapsed or expanded. Can be found in the [location-path option](docs/developer_guide/netlist_viewer/extra_layout_options.md#dethkoelnfentwumsnetlistbackendlocation-path)
+2. `nodepath`: The path of the node that is to be collapsed or expanded. Can be found in the [location-path option](extra_layout_options.md#dethkoelnfentwumsnetlistbackendlocation-path)
 
 Notes:
 
