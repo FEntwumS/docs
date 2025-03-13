@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fentwums.github.io/FEntwumS-Docs/developer_guide/waveform_interactor/approach/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Implementation Approach - FEntwumS Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Implementation Approach";
+        var mkdocs_page_input_path = "developer_guide/waveform_interactor/approach.md";
+        var mkdocs_page_url = "/FEntwumS-Docs/developer_guide/waveform_interactor/approach/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> FEntwumS Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../design_tools/">Design Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../oneware/">OneWare</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Guide</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Netlist Viewer</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../netlist_viewer/development_setup/">Development setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../netlist_viewer/api_information/">Backend API information</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../netlist_viewer/extra_layout_options/">Extra layout options</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Waveform Interactor</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Implementation Approach</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#steps-to-ensure-navigation-to-netlist-viewer-via-waveform-viewer-is-possible">Steps to ensure navigation to netlist-viewer via waveform-viewer is possible</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-creating-verilog-corresponding-to-design-with-yosys">1. Creating Verilog corresponding to Design (with Yosys)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-creating-the-simulation-binary-with-verilator">2. Creating the simulation binary (with Verilator)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-running-the-simulation">3. Running the Simulation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-map-yosysnetlist-bit-indices-to-vcd-identifiers">4. Map yosys/netlist bit-indices to .vcd identifiers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-recreate-the-original-design-hierarchy-from-the-flattened-netlist">5. Recreate the original design hierarchy from the flattened netlist</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">FEntwumS Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Developer Guide</li>
+          <li class="breadcrumb-item">Waveform Interactor</li>
+      <li class="breadcrumb-item active">Implementation Approach</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/fentwums/edit/master/docs/developer_guide/waveform_interactor/approach.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="waveform-interactor">Waveform Interactor<a class="headerlink" href="#waveform-interactor" title="Permanent link">&para;</a></h1>
+<p>To integrate the Netlist-Viewer seamless into the development workflow of OneWare, the functionality of its Waveform-Viewer has to be extended:</p>
+<p>Right-clicking on the signalname in OneWare's waveformviewer should offer context menus to:</p>
+<ol>
+<li>
+<p>Navigate to the signal in the netlist-viewer.</p>
+</li>
+<li>
+<p>Jump to the HDLs source origin </p>
+</li>
+</ol>
+<h2 id="steps-to-ensure-navigation-to-netlist-viewer-via-waveform-viewer-is-possible">Steps to ensure navigation to netlist-viewer via waveform-viewer is possible<a class="headerlink" href="#steps-to-ensure-navigation-to-netlist-viewer-via-waveform-viewer-is-possible" title="Permanent link">&para;</a></h2>
+<h3 id="1-creating-verilog-corresponding-to-design-with-yosys">1. Creating Verilog corresponding to Design <em>(with Yosys)</em><a class="headerlink" href="#1-creating-verilog-corresponding-to-design-with-yosys" title="Permanent link">&para;</a></h3>
+<p>First a flattened verilog file has to be generated with yosys from the whole design (from the same yosys processing passes, which have been applied to the HDL to generate the netlist for the netlist-viewer).</p>
+<div class="codehilite"><pre><span></span><code>yosys -p &quot;read_verilog -nooverwrite &lt;top_verilog.v&gt; &lt;other_verilog.v&gt;; scratchpad -set flatten.separator &quot;;&quot;; hierarchy -check -top &lt;toplevel&gt;; proc; memory -nomap; flatten -scopename; write_verilog &lt;flattened_verilog.v&gt;&quot;
+</code></pre></div>
+
+<h3 id="2-creating-the-simulation-binary-with-verilator">2. Creating the simulation binary <em>(with Verilator)</em><a class="headerlink" href="#2-creating-the-simulation-binary-with-verilator" title="Permanent link">&para;</a></h3>
+<p>This verilog file is verilated with Verilator to create compilable C++ sources.</p>
+<div class="codehilite"><pre><span></span><code>verilator --timescale-override 10ns/10ns -top-module &lt;toplevel&gt; -Wall --trace --exe --build -cc &lt;testbench.cpp&gt; &lt;flattened_verilog.v&gt;
+</code></pre></div>
+
+<p>A simulation binary is compiled from a manual-written C++ Verilator testbench and the verilated files.
+More on Verilator and its simulation <a href="https://verilator.org/guide/latest/verilating.html">here</a>.</p>
+<h3 id="3-running-the-simulation">3. Running the Simulation<a class="headerlink" href="#3-running-the-simulation" title="Permanent link">&para;</a></h3>
+<p>The simulation binary has to be executed, to run the simulation and dump simulation data in .vcd Waveform file.</p>
+<p>This has to be configured in the testbench.</p>
+<h3 id="4-map-yosysnetlist-bit-indices-to-vcd-identifiers">4. Map yosys/netlist bit-indices to .vcd identifiers<a class="headerlink" href="#4-map-yosysnetlist-bit-indices-to-vcd-identifiers" title="Permanent link">&para;</a></h3>
+<p>To ensure uniqueness, the Netlist-Viewer and Waveform Interactor identify signals via Bit-Index.
+This index is assigned by yosys during the processing passes.</p>
+<p>Each signal in the .vcd wavform file also has its own UID, consisting of 1 or 2 ASCII characters.</p>
+<p>To map Bit Indeces -&gt; VCD UID, at first the signalname of the processed signal is used. After the yosys passes described in 2., these signalnames contain their scope, and are therefore unique.</p>
+<p>Bit Indices can be retrieved via the from the backend via its <code>/get-net-information</code> endpoint (see <a href="../../netlist_viewer/api_information/">API information</a>).</p>
+<h4 id="why-not-use-the-signalname-as-uid-if-it-is-unique-after-the-respective-yosys-passes"><em>Why not use the signalname as UID, if it is unique after the respective Yosys passes?</em><a class="headerlink" href="#why-not-use-the-signalname-as-uid-if-it-is-unique-after-the-respective-yosys-passes" title="Permanent link">&para;</a></h4>
+<h3 id="5-recreate-the-original-design-hierarchy-from-the-flattened-netlist">5. Recreate the original design hierarchy from the flattened netlist<a class="headerlink" href="#5-recreate-the-original-design-hierarchy-from-the-flattened-netlist" title="Permanent link">&para;</a></h3>
+<p>Since flattening the design is currently required, the signallist in the .vcd contains no scopes at all. All signals lie in the same scope hierarchy.</p>
+<p>The idea is to recreate the .vcd scope hierarchy from the net information contained in the netlist. This information is also contained in the .json returned by the backends <code>/get-net-information</code> endpoint. </p>
+<p>To recreate this, the OneWare VCD datastructure has to be altered. This is currently not possible, since the corresponding attributes in the vcdView component, from which we can access OneWares parsed .vcd, is read-only.</p>
+<p>Another way would be to read the .vcd, alter it before it is parsed by OneWare.</p>
+<p>Maybe this is all not necessary, since Flojo is working on a pass without flattening.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../netlist_viewer/extra_layout_options/" class="btn btn-neutral float-left" title="Extra layout options"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/fentwums" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../netlist_viewer/extra_layout_options/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

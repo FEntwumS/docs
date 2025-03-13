@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://fentwums.github.io/fentwums-doc/</loc>
-         <lastmod>2025-02-06</lastmod>
+         <loc>https://fentwums.github.io/FEntwumS-Docs/</loc>
+         <lastmod>2025-03-13</lastmod>
     </url>
     <url>
-         <loc>https://fentwums.github.io/fentwums-doc/about/</loc>
-         <lastmod>2025-02-06</lastmod>
+         <loc>https://fentwums.github.io/FEntwumS-Docs/about/</loc>
+         <lastmod>2025-03-13</lastmod>
     </url>
     <url>
-         <loc>https://fentwums.github.io/fentwums-doc/design_tools/</loc>
-         <lastmod>2025-02-06</lastmod>
+         <loc>https://fentwums.github.io/FEntwumS-Docs/design_tools/</loc>
+         <lastmod>2025-03-13</lastmod>
     </url>
     <url>
-         <loc>https://fentwums.github.io/fentwums-doc/oneware/</loc>
-         <lastmod>2025-02-06</lastmod>
+         <loc>https://fentwums.github.io/FEntwumS-Docs/oneware/</loc>
+         <lastmod>2025-03-13</lastmod>
     </url>
     <url>
-         <loc>https://fentwums.github.io/fentwums-doc/developer_guide/netlist_viewer/api_information/</loc>
-         <lastmod>2025-02-06</lastmod>
+         <loc>https://fentwums.github.io/FEntwumS-Docs/developer_guide/netlist_viewer/api_information/</loc>
+         <lastmod>2025-03-13</lastmod>
     </url>
     <url>
-         <loc>https://fentwums.github.io/fentwums-doc/developer_guide/netlist_viewer/development_setup/</loc>
-         <lastmod>2025-02-06</lastmod>
+         <loc>https://fentwums.github.io/FEntwumS-Docs/developer_guide/netlist_viewer/development_setup/</loc>
+         <lastmod>2025-03-13</lastmod>
     </url>
     <url>
-         <loc>https://fentwums.github.io/fentwums-doc/developer_guide/netlist_viewer/extra_layout_options/</loc>
-         <lastmod>2025-02-06</lastmod>
+         <loc>https://fentwums.github.io/FEntwumS-Docs/developer_guide/netlist_viewer/extra_layout_options/</loc>
+         <lastmod>2025-03-13</lastmod>
+    </url>
+    <url>
+         <loc>https://fentwums.github.io/FEntwumS-Docs/developer_guide/waveform_interactor/approach/</loc>
+         <lastmod>2025-03-13</lastmod>
     </url>
 </urlset>
