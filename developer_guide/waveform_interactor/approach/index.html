@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fentwums.github.io/FEntwumS-Docs/developer_guide/waveform_interactor/approach/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fentwums.github.io/docs/developer_guide/waveform_interactor/approach/" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
     <title>Implementation Approach - FEntwumS Documentation</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
@@ -14,7 +14,7 @@
         // Current page data
         var mkdocs_page_name = "Implementation Approach";
         var mkdocs_page_input_path = "developer_guide/waveform_interactor/approach.md";
-        var mkdocs_page_url = "/FEntwumS-Docs/developer_guide/waveform_interactor/approach/";
+        var mkdocs_page_url = "/docs/developer_guide/waveform_interactor/approach/";
       </script>
     
     <!--[if lt IE 9]>
@@ -45,9 +45,9 @@
               </ul>
               <p class="caption"><span class="caption-text">User Guide</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../design_tools/">Design Tools</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/design_tools/">Design Tools</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../oneware/">OneWare</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/oneware/">OneWare</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Developer Guide</span></p>
@@ -150,11 +150,12 @@ This index is assigned by yosys during the processing passes.</p>
 <p>Bit Indices can be retrieved via the from the backend via its <code>/get-net-information</code> endpoint (see <a href="../../netlist_viewer/api_information/">API information</a>).</p>
 <h4 id="why-not-use-the-signalname-as-uid-if-it-is-unique-after-the-respective-yosys-passes"><em>Why not use the signalname as UID, if it is unique after the respective Yosys passes?</em><a class="headerlink" href="#why-not-use-the-signalname-as-uid-if-it-is-unique-after-the-respective-yosys-passes" title="Permanent link">&para;</a></h4>
 <h3 id="5-recreate-the-original-design-hierarchy-from-the-flattened-netlist">5. Recreate the original design hierarchy from the flattened netlist<a class="headerlink" href="#5-recreate-the-original-design-hierarchy-from-the-flattened-netlist" title="Permanent link">&para;</a></h3>
+<p><em>Not implemented yet.</em></p>
 <p>Since flattening the design is currently required, the signallist in the .vcd contains no scopes at all. All signals lie in the same scope hierarchy.</p>
 <p>The idea is to recreate the .vcd scope hierarchy from the net information contained in the netlist. This information is also contained in the .json returned by the backends <code>/get-net-information</code> endpoint. </p>
 <p>To recreate this, the OneWare VCD datastructure has to be altered. This is currently not possible, since the corresponding attributes in the vcdView component, from which we can access OneWares parsed .vcd, is read-only.</p>
-<p>Another way would be to read the .vcd, alter it before it is parsed by OneWare.</p>
-<p>Maybe this is all not necessary, since Flojo is working on a pass without flattening.</p>
+<p>Another solution would be to read the .vcd and recreate the original non-flattened scope hierarchy, before it is parsed by OneWare. 
+This would require double .vcd parsing (or at least parsing the .vcd variable declaration section twice), since OneWare parses the .vcd obviously to display the waveform.</p>
               
             </div>
           </div><footer>
