@@ -1,4 +1,4 @@
-### A brief introduction to OneWare Studio and its plugins
+## A brief introduction to OneWare Studio and its plugins
 
 OneWare is built on the [.NET SDK 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
 It uses the [Avalonia](https://avaloniaui.net/) frontend framework.
@@ -7,14 +7,50 @@ To start developing a plugin for OneWare, use the template, OneWare provides and
 
 It is advised to use [Intellij Rider](https://www.jetbrains.com/rider/) to develop the .NET OneWare Plugins. It packs a comprehensive building/running and debugging workflow for .NETs module management.
 
-#### Prism
+
+
+### Plugin Development with multiple projects/plugins
+
+To load multiple plugins/DLLs simultaneously during development in OneWare:
+
+Compile each project into a common build folder.
+![common build folder](../images/OneWare_common_build_folder.png)
+
+This folder holds the DLLs from all your compiled projects. In the above example project structure is:
+
+```
+project-root/
+├── bin/Debug/net9.0/ # Common build folder for compiled plugins/DLLs
+    ├── FEntwums.NetlistViewer.dll
+    ├── WaveformInteractor.dll
+    └── ...
+├── src/              # Source code for individual plugins
+│   ├── FEntwums.NetlistViewer/
+│   │   ├── src/
+│   │   ├── FEntwumS.NetlistViewer.csproj
+│   │   ├── FEntwumSNetlistReaderFrontendModule.cs
+│   │   └── ...
+│   ├── FEntwums.WaveformInteractor/
+│   │   ├── src/
+│   │   ├── FEntwumS.WaveformInteractor.csproj
+│   │   ├── FEntwumSWaveformInteractorModule.cs
+│   │   └── ...
+
+```
+
+Pass the `./bin/Debug/net9.0` folder as a parameter to the OneWare executable in your IDE's launch configuration:
+
+![run configuration](../images/OneWare_run_config.png)
+
+
+### Prism
 
 OneWare currently uses [Prism](https://github.com/PrismLibrary/Prism) to enable loosely coupled development. This also enables plugin development for OneWare.
 
 The plugin registers itself in the container registry, when being loaded in OneWare. 
 
 
-#### NuGet
+### NuGet
 
 NuGet is a package manager for the Microsoft development platform, primarily used for managing .NET libraries and dependencies. It the process of incorporating third-party libraries into .NET projects by providing a central repository of reusable code packages.
 

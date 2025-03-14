@@ -49,6 +49,7 @@ Bit Indices can be retrieved via the from the backend via its `/get-net-informat
 #### _Why not use the signalname as UID, if it is unique after the respective Yosys passes?_
 
 ### 5. Recreate the original design hierarchy from the flattened netlist
+_Not implemented yet._
 
 Since flattening the design is currently required, the signallist in the .vcd contains no scopes at all. All signals lie in the same scope hierarchy.
 
@@ -56,6 +57,5 @@ The idea is to recreate the .vcd scope hierarchy from the net information contai
 
 To recreate this, the OneWare VCD datastructure has to be altered. This is currently not possible, since the corresponding attributes in the vcdView component, from which we can access OneWares parsed .vcd, is read-only.
 
-Another way would be to read the .vcd, alter it before it is parsed by OneWare.
-
-Maybe this is all not necessary, since Flojo is working on a pass without flattening.
+Another solution would be to read the .vcd and recreate the original non-flattened scope hierarchy, before it is parsed by OneWare. 
+This would require double .vcd parsing (or at least parsing the .vcd variable declaration section twice), since OneWare parses the .vcd obviously to display the waveform.
