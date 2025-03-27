@@ -146,16 +146,55 @@ More on Verilator and its simulation <a href="https://verilator.org/guide/latest
 <p>To ensure uniqueness, the Netlist-Viewer and Waveform Interactor identify signals via Bit-Index.
 This index is assigned by yosys during the processing passes.</p>
 <p>Each signal in the .vcd wavform file also has its own UID, consisting of 1 or 2 ASCII characters.</p>
-<p>To map Bit Indeces -&gt; VCD UID, at first the signalname of the processed signal is used. After the yosys passes described in 2., these signalnames contain their scope, and are therefore unique.</p>
+<p>To map Bit Indeces -&gt; VCD Identifier, at first the signalname of the processed signal is used. After the yosys passes described in 2., these signalnames contain their scope, and are therefore unique.</p>
 <p>Bit Indices can be retrieved via the from the backend via its <code>/get-net-information</code> endpoint (see <a href="../../netlist_viewer/api_information/">API information</a>).</p>
+<p>To make bitmapping-per-vcd persistent, this mapping is saved in a .json after successfully obtaining it via the backend.
+The mapping of each .vcd in a OneWare project is saved in <code>&lt;OneWare_project/build/simulation/bitmapping.json&gt;</code></p>
+<p>Each .vcds body is hashed, as it uniquely represents the waveform, even when the scope hierarchy has been altered and recreated <em>(See next chapter)</em>.
+This <code>vcdBodyHash</code> holds the mapping of all VCD Identifier and their respective BitIndices of the .vcd.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;&lt;vcdBodyHash1&gt;&quot;</span><span class="p">:{</span>
+<span class="w">        </span><span class="nt">&quot;&lt;vcdIdentifier&gt;&quot;</span><span class="p">:{</span>
+<span class="w">            </span><span class="nt">&quot;BitIndexId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;BitIndices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">                </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">                </span><span class="mi">4</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="err">...</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;&lt;vcdBodyHash2&gt;&quot;</span><span class="p">:{</span>
+<span class="w">        </span><span class="nt">&quot;&lt;vcdIdentifier&gt;&quot;</span><span class="p">:{</span>
+<span class="w">            </span><span class="nt">&quot;BitIndexId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;BitIndices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="mi">1</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="err">...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <h4 id="why-not-use-the-signalname-as-uid-if-it-is-unique-after-the-respective-yosys-passes"><em>Why not use the signalname as UID, if it is unique after the respective Yosys passes?</em><a class="headerlink" href="#why-not-use-the-signalname-as-uid-if-it-is-unique-after-the-respective-yosys-passes" title="Permanent link">&para;</a></h4>
+<p>The signalname will change after recreating the original scope hierarchy. This will lead to incorrect mapping of signalname -&gt; vcdIdentifier.
+The mapping of the original .vcd can be reused, since the original and recreated vcd share the same body hash.  </p>
 <h3 id="5-recreate-the-original-design-hierarchy-from-the-flattened-netlist">5. Recreate the original design hierarchy from the flattened netlist<a class="headerlink" href="#5-recreate-the-original-design-hierarchy-from-the-flattened-netlist" title="Permanent link">&para;</a></h3>
-<p><em>Not implemented yet.</em></p>
-<p>Since flattening the design is currently required, the signallist in the .vcd contains no scopes at all. All signals lie in the same scope hierarchy.</p>
-<p>The idea is to recreate the .vcd scope hierarchy from the net information contained in the netlist. This information is also contained in the .json returned by the backends <code>/get-net-information</code> endpoint. </p>
-<p>To recreate this, the OneWare VCD datastructure has to be altered. This is currently not possible, since the corresponding attributes in the vcdView component, from which we can access OneWares parsed .vcd, is read-only.</p>
-<p>Another solution would be to read the .vcd and recreate the original non-flattened scope hierarchy, before it is parsed by OneWare. 
-This would require double .vcd parsing (or at least parsing the .vcd variable declaration section twice), since OneWare parses the .vcd obviously to display the waveform.</p>
+<p>Since flattening the design is currently required, the signallist in the .vcd contains no scopes but the top scope. All signals lie in the same scope hierarchy.</p>
+<p>The idea is to recreate the VCD scope hierarchy from the net information contained in the netlist. This information is contained in the signalname generated by yosys after flattening. The backend also offers the <code>/get-net-information</code> endpoint to retrieve the scope information. </p>
+<p>To recreate this, the OneWare VCD datastructure has to be altered. This is currently not possible, since the corresponding signal and scope objects in the vcdView component, from which we can access OneWares parsed .vcd, is read-only.</p>
+<h4 id="parse-the-vcd-and-write-a-new-one-with-recreated-hierarchy">Parse the .vcd and write a new one with recreated hierarchy<a class="headerlink" href="#parse-the-vcd-and-write-a-new-one-with-recreated-hierarchy" title="Permanent link">&para;</a></h4>
+<p>An alternative approach is to parse the .vcd definitions section into a dedicated data structure and reconstruct the original hierarchy based on the signal names. 
+Each signal name encodes its parent scopes, with nested scopes separated by a specific character. 
+Currently, this separator is ';', meaning a signal with two levels of hierarchy follows this format (for 2 scopes deep hierarchy):</p>
+<div class="codehilite"><pre><span></span><code>&lt;scope_parent&gt;;&lt;scope&gt;;&lt;signal&gt;
+</code></pre></div>
+
+<p>From this simple structure the original hierarchy easily be recreated and written into the definitions section of the new .vcd.</p>
+<p><em>More on the .vcd format can be found <a href="https://zipcpu.com/blog/2017/07/31/vcd.html">here</a></em></p>
+<p>Since the signal values remain unchanged, the body of the original and the hierarchy-recreated .vcd stays identical. After writing the reconstructed hierarchy into the definitions section, the body is streamed directly to the new .vcd file.</p>
+<p><em>In OneWare</em> right-clicking on the .vcd and selecting "Recreate Hierarchy from Signal Names" will generate the updated hierarchy. 
+The new file will be saved as <original_vcd>_recreated.vcd.</p>
               
             </div>
           </div><footer>
