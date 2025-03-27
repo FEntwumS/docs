@@ -22,16 +22,9 @@ nav:
       - Development setup: developer_guide/netlist_viewer/development_setup.md
       - Backend API information: developer_guide/netlist_viewer/api_information.md
       - Extra layout options: developer_guide/netlist_viewer/extra_layout_options.md
-    - Waveform Interactor:
-      - Implementation Approach: developer_guide/waveform_interactor/approach.md
+      - Waveform Interactor:
+        - Implementation Approach: developer_guide/netlist_viewer/waveform_interactor/approach.md
   - About: about.md
-  # - Introduction: introduction.md
-  # - Setup: setup.md
-  # - User Guide:
-      # - Getting Started: user_guide/getting_started.md
-      # - Features: user_guide/features.md
-  # - API:
-      # - Reference: api_reference.md
 
 plugins:
   - search

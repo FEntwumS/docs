@@ -8,7 +8,13 @@ Right-clicking on the signalname in OneWare's waveformviewer should offer contex
 
 2. Jump to the HDLs source origin 
 
+This component can be seen as an optional add-on to the Netlist-Viewer, it is useless without the Netlist-Viewer. 
+
+It yet has to be merged into the production package.
+
 ## Steps to ensure navigation to netlist-viewer via waveform-viewer is possible
+
+The following section will describe the implementation approach of the Waveform-Interactor component. It utilizes several steps to ensure proper communication with the Netlist-Viewer plugin is possible:
 
 ### 1. Creating Verilog corresponding to Design _(with Yosys)_
 
