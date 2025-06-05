@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "OneWare";
-        var mkdocs_page_input_path = "user_guide/oneware.md";
+        var mkdocs_page_input_path = "user_guide\\oneware.md";
         var mkdocs_page_url = "/docs/user_guide/oneware/";
       </script>
     
@@ -116,7 +116,7 @@ It uses the <a href="https://avaloniaui.net/">Avalonia</a> frontend framework.</
 <p>Compile each project into a common build folder.
 <img alt="common build folder" src="../../images/OneWare_common_build_folder.png" /></p>
 <p>This folder holds the DLLs from all your compiled projects. In the above example project structure is:</p>
-<div class="codehilite"><pre><span></span><code>project-root/
+<pre class="codehilite"><code>project-root/
 ├── bin/Debug/net9.0/ # Common build folder for compiled plugins/DLLs
     ├── FEntwums.NetlistViewer.dll
     ├── WaveformInteractor.dll
@@ -132,7 +132,7 @@ It uses the <a href="https://avaloniaui.net/">Avalonia</a> frontend framework.</
 │   │   ├── FEntwumS.WaveformInteractor.csproj
 │   │   ├── FEntwumSWaveformInteractorModule.cs
 │   │   └── ...
-</code></pre></div>
+</code></pre>
 
 <p>Pass the <code>./bin/Debug/net9.0</code> folder as a parameter to the OneWare executable in your IDE's launch configuration:</p>
 <p><img alt="run configuration" src="../../images/OneWare_run_config.png" /></p>

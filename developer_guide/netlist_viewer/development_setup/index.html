@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Development setup";
-        var mkdocs_page_input_path = "developer_guide/netlist_viewer/development_setup.md";
+        var mkdocs_page_input_path = "developer_guide\\netlist_viewer\\development_setup.md";
         var mkdocs_page_url = "/docs/developer_guide/netlist_viewer/development_setup/";
       </script>
     
@@ -131,7 +131,7 @@ And for the <code>Working directory</code>, enter <code>[plugin git repo]/src/FE
 <p>Compile each project into a common build folder.
 <img alt="common build folder" src="../../../images/OneWare_common_build_folder.png" /></p>
 <p>This folder holds the DLLs from all your compiled projects. In the above example project structure is:</p>
-<div class="codehilite"><pre><span></span><code>project-root/
+<pre class="codehilite"><code>project-root/
 ├── bin/Debug/net9.0/ # Common build folder for compiled plugins/DLLs
     ├── FEntwums.NetlistViewer.dll
     ├── WaveformInteractor.dll
@@ -147,12 +147,12 @@ And for the <code>Working directory</code>, enter <code>[plugin git repo]/src/FE
 │   │   ├── FEntwumS.WaveformInteractor.csproj
 │   │   ├── FEntwumSWaveformInteractorModule.cs
 │   │   └── ...
-</code></pre></div>
+</code></pre>
 
 <p>Pass the <code>./bin/Debug/net9.0</code> folder as a parameter to the OneWare executable in your IDE's launch configuration:</p>
 <p><img alt="run configuration" src="../../../images/OneWare_run_config.png" /></p>
 <h1 id="compiling-the-backend">Compiling the backend<a class="headerlink" href="#compiling-the-backend" title="Permanent link">&para;</a></h1>
-<p>If you want to work on the backend, please follow the instructions <a href="https://github.com/FEntwumS/NetlistReaderBackend?tab=readme-ov-file#build">here</a> to compile your own version.</p>
+<p>If you want to work on the backend, please clone the respective git repo and follow the instructions <a href="https://github.com/FEntwumS/NetlistReaderBackend?tab=readme-ov-file#build">here</a> to compile your own version.</p>
 <p>If you want to test any changes you made, start the backend manually using <code>java -jar fentwums-netlist-reader-server-[version number]-exec.jar</code> in the  <code>fentwums-netlist-reader-server/target</code> directory.</p>
 <p>The frontend plugin will automatically use the already running backend.</p>
               

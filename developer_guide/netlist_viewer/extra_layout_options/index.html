@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Extra layout options";
-        var mkdocs_page_input_path = "developer_guide/netlist_viewer/extra_layout_options.md";
+        var mkdocs_page_input_path = "developer_guide\\netlist_viewer\\extra_layout_options.md";
         var mkdocs_page_url = "/docs/developer_guide/netlist_viewer/extra_layout_options/";
       </script>
     
@@ -81,6 +81,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendport-group-name">de.thkoeln.fentwums.netlist.backend.port-group-name</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendfont-size">de.thkoeln.fentwums.netlist.backend.font-size</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendnot-connected">de.thkoeln.fentwums.netlist.backend.not-connected</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendindex-in-port-group">de.thkoeln.fentwums.netlist.backend.index-in-port-group</a>
     </li>
     </ul>
                 </li>
@@ -224,6 +228,24 @@ They contain additional metadata about the netlist that helps frontends interact
 <li>Type: <code>double</code></li>
 <li>Intended use: The font size of the label this attribute is attached to</li>
 <li>Target: <code>Labels</code></li>
+</ul>
+</details>
+<h2 id="dethkoelnfentwumsnetlistbackendnot-connected"><code>de.thkoeln.fentwums.netlist.backend.not-connected</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendnot-connected" title="Permanent link">&para;</a></h2>
+<details open="open">
+<ul>
+<li>Shortened option key: <code>not-connected</code></li>
+<li>Type: <code>boolean</code></li>
+<li>Intended use: Any port where this option is set to true does not have outgoing or incoming connections. The viewer can therefore use the value of this option to add additional symbols showing the connectedness of ports</li>
+<li>Target: <code>Ports</code></li>
+</ul>
+</details>
+<h2 id="dethkoelnfentwumsnetlistbackendindex-in-port-group"><code>de.thkoeln.fentwums.netlist.backend.index-in-port-group</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendindex-in-port-group" title="Permanent link">&para;</a></h2>
+<details open="open">
+<ul>
+<li>Shortened option key: <code>index-in-port-group</code></li>
+<li>Type: <code>Integer</code></li>
+<li>Intended use: Contains the index of the port inside the port group it belongs to</li>
+<li>Target: <code>Edges</code></li>
 </ul>
 </details>
               
