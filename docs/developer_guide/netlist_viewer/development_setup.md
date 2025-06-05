@@ -33,6 +33,39 @@ And for the `Working directory`, enter `[plugin git repo]/src/FEntwumS.NetlistVi
 
 If you followed all the instructions, running the configuration should open OneWare Studio with the FEntwumS netlist viewer plugin loaded.
 
+### Plugin Development with multiple projects/plugins
+
+To load multiple plugins/DLLs simultaneously during development in OneWare:
+
+Compile each project into a common build folder.
+![common build folder](../../images/OneWare_common_build_folder.png)
+
+This folder holds the DLLs from all your compiled projects. In the above example project structure is:
+
+```
+project-root/
+├── bin/Debug/net9.0/ # Common build folder for compiled plugins/DLLs
+    ├── FEntwums.NetlistViewer.dll
+    ├── WaveformInteractor.dll
+    └── ...
+├── src/              # Source code for individual plugins
+│   ├── FEntwums.NetlistViewer/
+│   │   ├── src/
+│   │   ├── FEntwumS.NetlistViewer.csproj
+│   │   ├── FEntwumSNetlistReaderFrontendModule.cs
+│   │   └── ...
+│   ├── FEntwums.WaveformInteractor/
+│   │   ├── src/
+│   │   ├── FEntwumS.WaveformInteractor.csproj
+│   │   ├── FEntwumSWaveformInteractorModule.cs
+│   │   └── ...
+
+```
+
+Pass the `./bin/Debug/net9.0` folder as a parameter to the OneWare executable in your IDE's launch configuration:
+
+![run configuration](../../images/OneWare_run_config.png)
+
 # Compiling the backend
 
 If you want to work on the backend, please clone the respective git repo and follow the instructions [here](https://github.com/FEntwumS/NetlistReaderBackend?tab=readme-ov-file#build) to compile your own version.
@@ -40,3 +73,4 @@ If you want to work on the backend, please clone the respective git repo and fol
 If you want to test any changes you made, start the backend manually using `java -jar fentwums-netlist-reader-server-[version number]-exec.jar` in the  `fentwums-netlist-reader-server/target` directory.
 
 The frontend plugin will automatically use the already running backend.
+
