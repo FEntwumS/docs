@@ -35,7 +35,7 @@ If you followed all the instructions, running the configuration should open OneW
 
 # Compiling the backend
 
-If you want to work on the backend, please follow the instructions [here](https://github.com/FEntwumS/NetlistReaderBackend?tab=readme-ov-file#build) to compile your own version.
+If you want to work on the backend, please clone the respective git repo and follow the instructions [here](https://github.com/FEntwumS/NetlistReaderBackend?tab=readme-ov-file#build) to compile your own version.
 
 If you want to test any changes you made, start the backend manually using `java -jar fentwums-netlist-reader-server-[version number]-exec.jar` in the  `fentwums-netlist-reader-server/target` directory.
 

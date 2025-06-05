@@ -113,3 +113,23 @@ They contain additional metadata about the netlist that helps frontends interact
 - Target: `Labels`
 
 </details>
+
+## `de.thkoeln.fentwums.netlist.backend.not-connected`
+<details open markdown="1">
+
+- Shortened option key: `not-connected`
+- Type: `boolean`
+- Intended use: Any port where this option is set to true does not have outgoing or incoming connections. The viewer can therefore use the value of this option to add additional symbols showing the connectedness of ports
+- Target: `Ports`
+
+</details>
+
+## `de.thkoeln.fentwums.netlist.backend.index-in-port-group`
+<details open markdown="1">
+
+- Shortened option key: `index-in-port-group`
+- Type: `Integer`
+- Intended use: Contains the index of the port inside the port group it belongs to
+- Target: `Edges`
+
+</details>
