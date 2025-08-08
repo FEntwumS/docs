@@ -86,6 +86,20 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendindex-in-port-group">de.thkoeln.fentwums.netlist.backend.index-in-port-group</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendcanonical-index-in-port-group">de.thkoeln.fentwums.netlist.backend.canonical-index-in-port-group</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendcanonical-bundle-lower-index-in-port-group">de.thkoeln.fentwums.netlist.backend.canonical-bundle-lower-index-in-port-group</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendcanonical-bundle-upper-index-in-port-group">de.thkoeln.fentwums.netlist.backend.canonical-bundle-upper-index-in-port-group</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendport-type">de.thkoeln.fentwums.netlist.backend.port-type</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendport-direction">de.thkoeln.fentwums.netlist.backend.port-direction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendhierarchy-ancestor-path">de.thkoeln.fentwums.netlist.backend.hierarchy-ancestor-path</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dethkoelnfentwumsnetlistbackendhierarchy-container-subnode-type">de.thkoeln.fentwums.netlist.backend.hierarchy-container-subnode-type</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" >Waveform Interactor</a>
@@ -246,6 +260,72 @@ They contain additional metadata about the netlist that helps frontends interact
 <li>Type: <code>Integer</code></li>
 <li>Intended use: Contains the index of the port inside the port group it belongs to</li>
 <li>Target: <code>Edges</code></li>
+</ul>
+</details>
+<h2 id="dethkoelnfentwumsnetlistbackendcanonical-index-in-port-group"><code>de.thkoeln.fentwums.netlist.backend.canonical-index-in-port-group</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendcanonical-index-in-port-group" title="Permanent link">&para;</a></h2>
+<details open="open">
+<ul>
+<li>Shortened option key:<code>canonical-index-in-port-group</code></li>
+<li>Type: <code>Integer</code></li>
+<li>Intended use: Contains the index of the port as described by the HDL sources. Can therefore be negative and may not start at index <code>0</code></li>
+<li>Target: <code>Ports</code></li>
+</ul>
+</details>
+<h2 id="dethkoelnfentwumsnetlistbackendcanonical-bundle-lower-index-in-port-group"><code>de.thkoeln.fentwums.netlist.backend.canonical-bundle-lower-index-in-port-group</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendcanonical-bundle-lower-index-in-port-group" title="Permanent link">&para;</a></h2>
+<details open="open">
+<ul>
+<li>Shortened option key: <code>canonical-bundle-lower-index-in-port-group</code></li>
+<li>Type: <code>Integer</code></li>
+<li>Intended use: Contains the lowest contained canonical index of the bundle contained in this port. The range is continous between lower and upper limit</li>
+<li>Target: <code>Ports</code></li>
+</ul>
+</details>
+<h2 id="dethkoelnfentwumsnetlistbackendcanonical-bundle-upper-index-in-port-group"><code>de.thkoeln.fentwums.netlist.backend.canonical-bundle-upper-index-in-port-group</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendcanonical-bundle-upper-index-in-port-group" title="Permanent link">&para;</a></h2>
+<details open="open">
+<ul>
+<li>Shortened option key: <code>canonical-bundle-upper-index-in-port-group</code></li>
+<li>Type: <code>Integer</code></li>
+<li>Intended use: Contains the highest contained canonical index of the bundle contained in this port</li>
+<li>Target: <code>Ports</code></li>
+</ul>
+</details>
+<h2 id="dethkoelnfentwumsnetlistbackendport-type"><code>de.thkoeln.fentwums.netlist.backend.port-type</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendport-type" title="Permanent link">&para;</a></h2>
+<details open="open">
+<ul>
+<li>Short option key: <code>port-type</code></li>
+<li>Type: <code>String</code></li>
+<li>Value: One of <code>SIGNAL_SINGLE</code>, <code>SIGNAL_MULTIPLE</code>, <code>CONSTANT_SINGLE</code> or <code>CONSTANT_MULTIPLE</code></li>
+<li>Inteded use: Describes whether a port contains only one or multiple signals and whether they are constant or not</li>
+<li>Target: <code>Ports</code></li>
+</ul>
+</details>
+<h2 id="dethkoelnfentwumsnetlistbackendport-direction"><code>de.thkoeln.fentwums.netlist.backend.port-direction</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendport-direction" title="Permanent link">&para;</a></h2>
+<details open="open">
+<ul>
+<li>Shortened option key: <code>port-direction</code></li>
+<li>Type: <code>String</code></li>
+<li>Value: One of <code>UNKNOWN</code>, <code>INPUT</code>, <code>OUTPUT</code> or <code>INOUT</code></li>
+<li>Intended use: Describes the direction of the port description for the hierarchy viewer frontend</li>
+<li>Target: <code>Ports</code></li>
+</ul>
+</details>
+<h2 id="dethkoelnfentwumsnetlistbackendhierarchy-ancestor-path"><code>de.thkoeln.fentwums.netlist.backend.hierarchy-ancestor-path</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendhierarchy-ancestor-path" title="Permanent link">&para;</a></h2>
+<details open="open">
+<ul>
+<li>Shortened option key: <code>hierarchy-ancestor-path</code></li>
+<li>Type: <code>String</code></li>
+<li>Intended use: Contains the path of the containing entity for a text-based hierarchy viewer</li>
+<li>Target: <code>Nodes</code></li>
+</ul>
+</details>
+<h2 id="dethkoelnfentwumsnetlistbackendhierarchy-container-subnode-type"><code>de.thkoeln.fentwums.netlist.backend.hierarchy-container-subnode-type</code><a class="headerlink" href="#dethkoelnfentwumsnetlistbackendhierarchy-container-subnode-type" title="Permanent link">&para;</a></h2>
+<details open="open">
+<ul>
+<li>Shortened option key: <code>hierarchy-container-subnode-type</code></li>
+<li>Type: <code>String</code></li>
+<li>Value: One of <code>NAME</code>, <code>TYPE</code>, <code>PARAMETERS</code> or <code>PORTS</code></li>
+<li>Describes which section of the entities module representation is covered by this node</li>
+<li>Target: <code>Nodes</code></li>
 </ul>
 </details>
               
