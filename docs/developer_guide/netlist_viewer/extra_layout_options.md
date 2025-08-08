@@ -133,3 +133,69 @@ They contain additional metadata about the netlist that helps frontends interact
 - Target: `Edges`
 
 </details>
+
+## `de.thkoeln.fentwums.netlist.backend.canonical-index-in-port-group`
+<details open markdown="1">
+
+- Shortened option key:`canonical-index-in-port-group`
+- Type: `Integer`
+- Intended use: Contains the index of the port as described by the HDL sources. Can therefore be negative and may not start at index `0`
+- Target: `Ports`
+</details>
+
+## `de.thkoeln.fentwums.netlist.backend.canonical-bundle-lower-index-in-port-group`
+<details open markdown="1">
+
+- Shortened option key: `canonical-bundle-lower-index-in-port-group`
+- Type: `Integer`
+- Intended use: Contains the lowest contained canonical index of the bundle contained in this port. The range is continous between lower and upper limit
+- Target: `Ports`
+</details>
+
+## `de.thkoeln.fentwums.netlist.backend.canonical-bundle-upper-index-in-port-group`
+<details open markdown="1">
+
+- Shortened option key: `canonical-bundle-upper-index-in-port-group`
+- Type: `Integer`
+- Intended use: Contains the highest contained canonical index of the bundle contained in this port
+- Target: `Ports`
+</details>
+
+## `de.thkoeln.fentwums.netlist.backend.port-type`
+<details open markdown="1">
+
+- Short option key: `port-type`
+- Type: `String`
+- Value: One of `SIGNAL_SINGLE`, `SIGNAL_MULTIPLE`, `CONSTANT_SINGLE` or `CONSTANT_MULTIPLE`
+- Inteded use: Describes whether a port contains only one or multiple signals and whether they are constant or not
+- Target: `Ports`
+</details>
+
+## `de.thkoeln.fentwums.netlist.backend.port-direction`
+<details open markdown="1">
+
+- Shortened option key: `port-direction`
+- Type: `String`
+- Value: One of `UNKNOWN`, `INPUT`, `OUTPUT` or `INOUT`
+- Intended use: Describes the direction of the port description for the hierarchy viewer frontend
+- Target: `Ports`
+</details>
+
+## `de.thkoeln.fentwums.netlist.backend.hierarchy-ancestor-path`
+<details open markdown="1">
+
+- Shortened option key: `hierarchy-ancestor-path`
+- Type: `String`
+- Intended use: Contains the path of the containing entity for a text-based hierarchy viewer
+- Target: `Nodes`
+</details>
+
+## `de.thkoeln.fentwums.netlist.backend.hierarchy-container-subnode-type`
+<details open markdown="1">
+
+- Shortened option key: `hierarchy-container-subnode-type`
+- Type: `String`
+- Value: One of `NAME`, `TYPE`, `PARAMETERS` or `PORTS`
+- Describes which section of the entities module representation is covered by this node
+- Target: `Nodes`
+</details>
